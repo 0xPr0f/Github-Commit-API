@@ -1,46 +1,47 @@
-# Getting Started with Create React App
+# Github-Commit-Automator
+  
+This is a project that lets you push comit from code using the github api to edit specific repo/file content.     
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is project was made bare bones with no single regard for frontend lol.    
 
-## Available Scripts
+## How it works/ work it
 
-In the project directory, you can run:
+clone project locally with git clone, then install packages `npm i`, and then fix in the missing variables there are some variable 
+that are missing, fill them up        
 
-### `npm start`
+Name / USERNAME - username of the access token.     
+Email - email the username belong to.     
+REPONAME - name of the repo to look for the file in.     
+FILEPATH - path to the file.     
+TOKEN - authorisation token / personal access token to grant access. [read more here about the token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token).    
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+The concept is that if you call the function to get repos content, github returns it with the content (encoded into base64) and the sha (hash), then you can call a fucntion to decode the content to text and the you can edit that text and encode it back to be sent, the sha is like the hash of the latest commit whhich is needed.      
 
-### `npm test`
+Then you can call the content of a file and pass it data to be able to edit the file, you will pass it the new content, the previous commit hash, the username of the commiter, the email of the username, the authorisation token for the commiter, then a message (commit message).
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Note 
+The authorisation token for the commiter must have the repos access, you can give it full access (select all the checks but dont push the token to github lol).     
+The content needs to be decode to be read and edited and encoded to be sent back.      
+The commit hash must be updated.    
+example
+```json
+{
+          message: "This is a bot upating the files",
+          committer: {
+            name: "Name",
+            email: "Email",
+          },
+          content: editcontent,
+          sha: data.data.sha,
+        },
+        {
+          headers: {
+            Authorization: `token TOKEN`,
+          },
+        }
+ ```
+ Then you can call a loop that fetch the previous comit hash and the content (do the needfull) and send it in a new commit and reapeat.    
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+### The github contains a basic implementation, UI will be expected in a few weeks or months 
+### Please earn those contribution green checks not cheat your way through it 😅😅🥲😝   
