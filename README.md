@@ -43,5 +43,8 @@ example
  ```
  Then you can call a loop that fetch the previous comit hash and the content (do the needfull) and send it in a new commit and reapeat.    
 
+## python
+If you hate frontend (like me), there is a python script to run (configure it in the same way above and it should run  
+The script name is `commits.py`    
 ### The github contains a basic implementation, UI will be expected in a few weeks or months 
 ### Please earn those contribution green checks not cheat your way through it 😅😅🥲😝   
