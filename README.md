@@ -25,7 +25,7 @@ The authorisation token for the commiter must have the repos access, you can giv
 The content needs to be decode to be read and edited and encoded to be sent back.      
 The commit hash must be updated.    
 example
-```json
+```js
 {
           message: "This is a bot upating the files",
           committer: {
