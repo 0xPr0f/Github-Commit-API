@@ -1,4 +1,4 @@
-# Github-Commit-Automator
+# Github-Commit-API
   
 This is a project that lets you push comit from code using the github api to edit specific repo/file content.     
 
